@@ -72,8 +72,8 @@ mutil_errcode matset_malloc( mat_set *matset, sint32 ndim,
 
   MUTIL_ASSERT( matset->nelem > 0 );
 
-  trouble = mutil_malloc( matset->nelem * sizeof( univ_mat ),
-    (void **) &(matset->mats));
+  matset->mats = malloc( matset->nelem * sizeof( univ_mat ) );
+
   if( trouble ) {
     MUTIL_FREE_BUFFER_WARN( matset->dims, ndim * sizeof( sint32 ));
     return trouble;

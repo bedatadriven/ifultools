@@ -155,10 +155,7 @@
   \
   /* Allocate space */ \
   \
-  errcode = mutil_malloc( (MAT_PTR)->nelem * sizeof( DATA_TYPE ), \
-    (void**) &(MAT_PTR)->data ); \
-  if( errcode ) return errcode; \
-  \
+  (MAT_PTR)->data = malloc( (MAT_PTR)->nelem * sizeof( DATA_TYPE ) ); \
   MUTIL_ASSERT( (MAT_PTR)->data ); \
   \
   MUTIL_TRACE( #MAT_FN_PREFIX "_malloc() done"); \

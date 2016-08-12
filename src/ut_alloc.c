@@ -140,9 +140,11 @@ mutil_errcode mutil_free( void *data, sint32 old_size )
     return MUTIL_ERR_OK;
   }
 
+#ifndef RENJIN
   pdata = (char *) data;
 
   Free( pdata );
+#endif
 
   MUTIL_TRACE("Done with mutil_free()");
   return MUTIL_ERR_OK;
